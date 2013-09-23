@@ -17,14 +17,14 @@ public class HelloWorldTest {
 
   @Test
   public void testMatchesBook(){
-    HelloWorld hello = new HelloWorld("bookbook");
-    assertEquals(false, hello.matchesWords());
+    HelloWorld hello = new HelloWorld("book");
+    assertEquals(true, hello.matchesWords());
   }
 
   @Test
   public void testMatchesTest(){
-    HelloWorld hello = new HelloWorld("testtest");
-    assertEquals(false, hello.matchesWords());
+    HelloWorld hello = new HelloWorld("test");
+    assertEquals(true, hello.matchesWords());
   }
 
   @Test
@@ -33,5 +33,15 @@ public class HelloWorldTest {
     assertEquals(false, hello.longEnough());
     HelloWorld hello2 = new HelloWorld("1234567");
     assertEquals(true, hello2.longEnough());
+  }
+
+  @Test
+  public void testHasSpecialChar(){
+    HelloWorld hello = new HelloWorld("@");
+    assertEquals(true, hello.hasSpecialChar());
+    HelloWorld hello2 = new HelloWorld("@ss");
+    assertEquals(true, hello2.hasSpecialChar());
+    HelloWorld hello3 = new HelloWorld("halt!");
+    assertEquals(true, hello3.hasSpecialChar());
   }
 }
